@@ -58,6 +58,7 @@
 		  
 		  this.floorWidth = 45;
 		  this.floorDepth = 75;
+		  this.maxDebris = 125;
 		  this.CannonMode = false;
 		  this.Spawn = function() { 
 			  		this.Spawned_Tables = 0;
@@ -135,6 +136,7 @@
 		f1_2.add(fizzyText, 'legDepth', 0, 1);
 		f1_2.add(fizzyText, 'topMass', 0, 200);
 		f1_2.add(fizzyText, 'legMass', 0, 20);
+		f1_2.add(fizzyText, 'maxDebris', 0, 2000);
 		var f1_3 = f1.addFolder('Fun Modes');
 		f1_3.add(fizzyText, 'RandomSpawnLimit', 0, 125);
 		f1_3.add(fizzyText, 'Spawn');
@@ -450,7 +452,7 @@
 			createDebrisFromBreakableObject( object );
 			removeDebArray.push( object );
 			
-			if(removeDebArray.length>125)
+			if(removeDebArray.length>fizzyText.maxDebris)
 			{
 				removeDebris(removeDebArray[0]);
 				removeDebArray.shift();
