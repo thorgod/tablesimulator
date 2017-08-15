@@ -61,6 +61,7 @@
 		  this.CannonMode = false;
 		  this.Spawn = function() { 
 			  		this.Spawned_Tables = 0;
+					removeDebArray=[];
 					rigidBodies = [];
 					initGraphics();
 
@@ -72,6 +73,7 @@
 		  }; 
 		  this.Reset = function() { 
 			  		rigidBodies = [];
+					removeDebArray=[];
 			  		this.Spawned_Tables = 0;
 					initGraphics();
 
@@ -82,6 +84,13 @@
 					
 					
 		  };
+		  this.Remove_Debris = function()
+		  {
+			removeDebArray.forEach(function(element) {
+				removeDebris(element);
+			})
+			removeDebArray=[];
+		  }
 		  this.SpawnFunStuff = function()
 		  {
 			this.CannonMode = true;
@@ -132,6 +141,7 @@
 		f1_3.add(fizzyText, 'CannonMode').listen();
 		f1_3.add(fizzyText, 'SpawnFunStuff');
 		
+		gui.add(fizzyText, 'Remove_Debris');
 		gui.add(fizzyText, 'Reset');
 
 
@@ -249,6 +259,7 @@
 			}
 
 		}
+		
 		function initGraphics() {
 
 			container = document.getElementById( 'container' );
@@ -258,10 +269,12 @@
 			scene = new THREE.Scene();
 			scene.background = new THREE.Color( 0xbfd1e5 );
 
-			camera.position.set( 84, 18, 16 );
-
+			camera.position.set(  25.5739404556811, 16.414862374285445, -48.09991248600272);
+	
+			
+			
 			controls = new THREE.OrbitControls( camera );
-			controls.target.set( 0, 2, 0 );
+			controls.target.set(  -5.4509902922413325,  -2.421702722667469,-5.994649328108012 );
 			controls.update();
 
 			renderer = new THREE.WebGLRenderer();
@@ -431,6 +444,18 @@
 			return object;
 
 		}
+		var removeDebArray = [];
+		function createDebrisFromBreakableObject2(object)
+		{
+			createDebrisFromBreakableObject( object );
+			removeDebArray.push( object );
+			
+			if(removeDebArray.length>125)
+			{
+				removeDebris(removeDebArray[0]);
+				removeDebArray.shift();
+			}
+		}
 
 		function createDebrisFromBreakableObject( object ) {
 
@@ -446,6 +471,8 @@
 			var btVecUserData = new Ammo.btVector3( 0, 0, 0 );
 			btVecUserData.threeObject = object;
 			body.setUserPointer( btVecUserData );
+			
+			
 
 		}
 
@@ -549,6 +576,7 @@
 						case 1: // middle
 							break;
 						case 2: // right
+							fizzyText.isClicked = false;
 							return;
 							break;
 					}
@@ -635,7 +663,7 @@
 		function updatePhysics( deltaTime ) {
 		
 		
-		
+			
 			if(fizzyText.isClicked)
 			{			
 				if(goingUp)
@@ -756,7 +784,7 @@
 					var numObjects = debris.length;
 					for ( var j = 0; j < numObjects; j++ ) {
 
-						createDebrisFromBreakableObject( debris[ j ] );
+						createDebrisFromBreakableObject2( debris[ j ] );
 
 					}
 
@@ -772,7 +800,7 @@
 					var numObjects = debris.length;
 					for ( var j = 0; j < numObjects; j++ ) {
 
-						createDebrisFromBreakableObject( debris[ j ] );
+						createDebrisFromBreakableObject2( debris[ j ] );
 
 					}
 
