@@ -60,24 +60,27 @@
 		  this.floorDepth = 75;
 		  this.CannonMode = false;
 		  this.Spawn = function() { 
+			  		this.Spawned_Tables = 0;
+					rigidBodies = [];
 					initGraphics();
 
 					initPhysics();
 
 					createObjects();
 					createHelper();
-					this.Spawned_Tables = 0;
-					rigidBodies = [];
+	
 		  }; 
 		  this.Reset = function() { 
+			  		rigidBodies = [];
+			  		this.Spawned_Tables = 0;
 					initGraphics();
 
 					initPhysics();
 
 					createObjects();
 					createHelper();
-					this.Spawned_Tables = 0;
-					rigidBodies = [];
+					
+					
 		  };
 		  this.SpawnFunStuff = function()
 		  {
