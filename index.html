@@ -61,6 +61,13 @@
 		  this.floorDepth = 75;
 		  this.maxDebris = 125;
 		  this.CannonMode = false;
+		  this.Stop_Music = function()
+		  {
+			if(!audio.paused)
+				audio.pause(); 
+			else 
+				audio.play();
+		  }
 		  this.Spawn = function() { 
 			  		this.Spawned_Tables = 0;
 					removeDebArray=[];
@@ -143,7 +150,7 @@
 		f1_3.add(fizzyText, 'Spawn');
 		f1_3.add(fizzyText, 'CannonMode').listen();
 		f1_3.add(fizzyText, 'SpawnFunStuff');
-		
+		gui.add(fizzyText, 'Stop_Music');
 		gui.add(fizzyText, 'Remove_Debris');
 		gui.add(fizzyText, 'Reset');
 
