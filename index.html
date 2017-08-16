@@ -136,7 +136,15 @@
 		f2.add(fizzyText, 'Solid_Tables', 0, 300).listen();
 		f2.add(fizzyText, 'Spawned_Tables', 0, 20).listen();
 		f2.open();
-		var f1 = gui.addFolder('Setup');
+
+			
+		var f3 = gui.addFolder('Commands');
+		f3.add(fizzyText, 'Stop_Music');
+		f3.add(fizzyText, 'Remove_Debris');
+		f3.add(fizzyText, 'Reset');
+		f3.open();
+			
+		var f1 = gui.addFolder('Options');
 		var f1_2 = f1.addFolder('Game Balance Setup');
 		f1_2.add(fizzyText, 'floorWidth', 0, 100);
 		f1_2.add(fizzyText, 'floorDepth', 0, 100);
@@ -145,18 +153,13 @@
 		f1_2.add(fizzyText, 'topMass', 0, 200);
 		f1_2.add(fizzyText, 'legMass', 0, 20);
 		f1_2.add(fizzyText, 'maxDebris', 0, 2000);
-		var f1_3 = f1.addFolder('Fun Modes');
+		var f1_3 = f1.addFolder('Secret Menu ;)');
 		f1_3.add(fizzyText, 'RandomSpawnLimit', 0, 125);
 		f1_3.add(fizzyText, 'Spawn');
 		f1_3.add(fizzyText, 'CannonMode').listen();
 		f1_3.add(fizzyText, 'SpawnFunStuff');
 			
-		var f3 = gui.addFolder('Commands');
-		f3.add(fizzyText, 'Stop_Music');
-		f3.add(fizzyText, 'Remove_Debris');
-		f3.add(fizzyText, 'Reset');
-		f3.open();
-
+			
 		// Detects webgl
 		if ( ! Detector.webgl ) {
 			Detector.addGetWebGLMessage();
