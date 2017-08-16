@@ -150,10 +150,12 @@
 		f1_3.add(fizzyText, 'Spawn');
 		f1_3.add(fizzyText, 'CannonMode').listen();
 		f1_3.add(fizzyText, 'SpawnFunStuff');
-		gui.add(fizzyText, 'Stop_Music');
-		gui.add(fizzyText, 'Remove_Debris');
-		gui.add(fizzyText, 'Reset');
-
+			
+		var f3 = gui.addFolder('Commands');
+		f3.add(fizzyText, 'Stop_Music');
+		f3.add(fizzyText, 'Remove_Debris');
+		f3.add(fizzyText, 'Reset');
+		f3.open();
 
 		// Detects webgl
 		if ( ! Detector.webgl ) {
