@@ -78,13 +78,28 @@ var Syx = 0.5,
   onWindowResize();
 
   window.addEventListener( 'resize', onWindowResize, false );
-	window.addEventListener('mousemove', mouseMonitor,false);
+  window.addEventListener( 'resize', onWindowResize, false );
+	window.addEventListener('mousedown', mouseMonitor,false);
+	window.addEventListener('mouseup', mouseUp,false);
+	window.addEventListener('mousemove', mouseMove,false);
+}
+var mouseDown = false;
+
+ function mouseMonitor(event) {
+	mouseDown = true;
 
 }
- function mouseMonitor(event) {
-  uniforms.iMouse.value.x = event.pageX;
-  uniforms.iMouse.value.y = event.pageY;
+function mouseUp(event)
+{
+	mouseDown = false;
+	
 }
+function mouseMove(event)
+{
+	if(mouseDown)
+		uniforms.iMouse.value.x= event.pageX;
+}
+
 
 function onWindowResize( event ) {
 
