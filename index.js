@@ -84,10 +84,10 @@ var Syx = 0.5,
 	window.addEventListener('mousemove', mouseMove,false);
 }
 var mouseDown = false;
-
+var startSpot = 0.;
  function mouseMonitor(event) {
 	mouseDown = true;
-
+	startSpot += event.pageX;
 }
 function mouseUp(event)
 {
@@ -97,8 +97,9 @@ function mouseUp(event)
 function mouseMove(event)
 {
 	if(mouseDown)
-		uniforms.iMouse.value.x= event.pageX;
+		uniforms.iMouse.value.x= event.pageX+startSpot;
 }
+
 
 
 function onWindowResize( event ) {
