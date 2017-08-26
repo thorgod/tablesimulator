@@ -11,9 +11,6 @@ function init() {
 
   container = document.getElementById( 'container' );
 	stats = new Stats();
-	stats.domElement.style.position = 'absolute';
-	stats.domElement.style.bottom = '0px';
-	stats.domElement.style.zIndex = 100;
 	container.appendChild( stats.domElement );
   startTime = Date.now();
   camera = new THREE.Camera();
@@ -116,7 +113,7 @@ function onWindowResize( event ) {
 }
 
 function animate() {
-
+	stats.update();
   requestAnimationFrame( animate );
   render();
 
