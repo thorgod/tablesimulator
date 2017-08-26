@@ -9,6 +9,13 @@ var mesh;
 var sphere;
 function init() {
 
+	myAudio = new Audio('ocean.mp3'); 
+	myAudio.addEventListener('ended', function() {
+	    this.currentTime = 0;
+	    this.play();
+	}, false);
+	myAudio.play();	
+
   container = document.getElementById( 'container' );
 
   startTime = Date.now();
