@@ -10,8 +10,7 @@ var sphere;
 function init() {
 
   container = document.getElementById( 'container' );
-	stats = new Stats();
-	container.appendChild( stats.domElement );
+
   startTime = Date.now();
   camera = new THREE.Camera();
   camera.position.z = 1;
@@ -75,7 +74,8 @@ var Syx = 0.5,
   
   renderer = new THREE.WebGLRenderer();
   container.appendChild( renderer.domElement );
-
+stats = new Stats();
+container.appendChild( stats.domElement );
   onWindowResize();
 
   window.addEventListener( 'resize', onWindowResize, false );
