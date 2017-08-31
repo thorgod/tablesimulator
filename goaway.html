@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head>
-	  <!–– I ported shader from  
-		 * "Seascape" by Alexander Alekseev aka TDM - 2014
-		 * License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-		 * Contact: tdmaav@gmail.com
-		 */
- 		-->
+
   <meta charset="UTF-8">
 	<meta property="og:title" content="Wave Simulator" />
 	<meta property="og:description" content="Three.js Website wave simulator" />
@@ -25,6 +20,19 @@
 </head>
 
 <body>
+	<div class='fullscreenDiv'>
+    <div class="center">Mikes3Ds</div>
+</div>
+
+.center {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; /* margin is -0.5 * dimension */
+    margin-top: -25px; 
+}
   <div id="container"></div>
 <script id="vertexShader" type="x-shader/x-vertex">
 
